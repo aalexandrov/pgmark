@@ -1,0 +1,12 @@
+[build]
+rustflags = ["--cfg", "tokio_unstable"]
+
+# Temporary overrides needed for local development.
+[patch.crates-io]
+datafusion = { path = "../datafusion/datafusion/core" }
+pgwire = { path = "../pgwire" }
+postgres-protocol = { path = "../rust-postgres/postgres-protocol" }
+rust_decimal = { path = "../rust-decimal" }
+spectest = { path = "/home/alexander/workspace/spectest/src/spectest" }
+sqlparser = { path = "../sqlparser-rs" }
+tokio-postgres = { path = "../rust-postgres/tokio-postgres" }

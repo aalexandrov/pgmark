@@ -1,0 +1,16 @@
+[package]
+name = "pgmark"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ascii_table = "4.0.3"
+bytes = "1.6.0"
+clap = { version = "4.5", features = ["derive", "env"] }
+futures = { version = "0.3" }
+sqlparser = { version = "0.47.0" }
+thiserror = { version = "1.0.61" }
+tokio = { version = "1", features = ["full"] }
+tokio-postgres = { version = "0.7.10" }
+tracing = { version = "0.1" }
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }

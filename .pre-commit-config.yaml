@@ -1,0 +1,31 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+  - repo: local
+    hooks:
+      - id: fmt
+        name: cargo fmt
+        language: system
+        files: '\.rs$'
+        entry: cargo fmt -- --check # rustup run nightly rustfmt
+
+      - id: clippy
+        name: cargo clippy
+        language: system
+        files: '\.rs$'
+        entry: cargo clippy --all-targets --all -- -Dwarnings
+        pass_filenames: false
+
+      - id: test
+        name: cargo test
+        language: system
+        files: '\.rs$'
+        entry: cargo test
+        pass_filenames: false
